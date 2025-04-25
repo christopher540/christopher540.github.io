@@ -44,18 +44,6 @@
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #e2e8f0;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
-        }
-        
         .timeline-item:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -76,6 +64,57 @@
             transform: translateY(20px);
             transition: all 0.3s ease;
         }
+        
+        .skill-level {
+            height: 8px;
+            border-radius: 4px;
+            background-color: '#e2e8f0';
+            position: relative;
+        }
+        
+        .skill-level::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+        }
+        
+        .skill-level.expert::after { width: 100%; }
+        .skill-level.advanced::after { width: 80%; }
+        .skill-level.intermediate::after { width: 60%; }
+        .skill-level.beginner::after { width: 40%; }
+        
+        .proficiency-label {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .proficiency-expert {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .proficiency-advanced {
+            background-color: #60a5fa;
+            color: white;
+        }
+        
+        .proficiency-intermediate {
+            background-color: #93c5fd;
+            color: #1e293b;
+        }
+        
+        .proficiency-beginner {
+            background-color: #bfdbfe;
+            color: #1e293b;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -92,7 +131,6 @@
                     <a href="#education" class="text-gray-700 hover:text-primary transition">Education</a>
                     <a href="#experience" class="text-gray-700 hover:text-primary transition">Experience</a>
                     <a href="#projects" class="text-gray-700 hover:text-primary transition">Projects</a>
-                    <a href="#skills" class="text-gray-700 hover:text-primary transition">Skills</a>
                     <a href="#contact" class="text-gray-700 hover:text-primary transition">Contact</a>
                 </div>
                 <div class="md:hidden flex items-center">
@@ -112,7 +150,6 @@
                 <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Education</a>
                 <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Experience</a>
                 <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Projects</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Skills</a>
                 <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
             </div>
         </div>
@@ -278,7 +315,7 @@
                         </div>
                         <ul class="list-disc pl-5 space-y-1 text-gray-700">
                             <li>Preprocessed internal company data for LLM training, including cleaning, chunking, and vector embedding</li>
-                            <li>Fine-tuned a Large Language Model (LLM) using Retrieval-Augmented Generation (RAG) on internal company data, leveraging Ollama for model deployment and Qdrant as the vector database to enhance retrieval efficiency, resulting in a 50% improvement in inference speed</li>
+                            <li>Fine-tuned a Large Language Model (LLM) using Retrieval-Augmented Generation (RIAG) on internal company data, leveraging Ollama for model deployment and Qdrant as the vector database to enhance retrieval efficiency, resulting in a 50% improvement in inference speed</li>
                         </ul>
                     </div>
                 </div>
@@ -299,7 +336,7 @@
                             <span class="text-sm text-primary bg-primary bg-opacity-10 px-2 py-1 rounded">Jun 2024 - Aug 2024</span>
                         </div>
                         <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Developed a personalized profile chatbot that allows inquiries about one’s background powered by Llama, integrated with a MySQL database and a web interface using Streamlit and Gradio, resulting in a 35% increase in user engagement</li>
+                            <li>Developed a personalized profile chatbot that allows inquiries about one's background powered by Llama, integrated with a MySQL database and a web interface using Streamlit and Gradio, resulting in a 35% increase in user engagement</li>
                             <li>Engineered an AI-powered business card scanner using PyTesseract and integrated profile-sharing functionality via face recognition, leading to a 30% increase in information exchange speed</li>
                             <li>Performed a comprehensive business analysis that identified critical challenges in hiring, UI/UX, and marketing; delivered actionable recommendations to management, enhancing strategic decision-making</li>
                         </ul>
@@ -378,58 +415,17 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Project 3 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition duration-300">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://via.placeholder.com/600x400?text=GenAI+Hackathon" alt="GenAI Hackathon" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center project-overlay">
-                            <a href="#" class="px-4 py-2 bg-white text-primary font-medium rounded mr-2">View Demo</a>
-                            <a href="#" class="px-4 py-2 bg-primary text-white font-medium rounded">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">GenAI Hackathon Project</h3>
-                        <p class="text-gray-600 mb-4">Developed an AI-powered solution for [specific problem] during the GenAI Hackathon.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Python</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">LLMs</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">HuggingFace</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">FastAPI</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition duration-300">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://via.placeholder.com/600x400?text=Financial+Analysis" alt="Financial Analysis" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center project-overlay">
-                            <a href="#" class="px-4 py-2 bg-white text-primary font-medium rounded mr-2">View Demo</a>
-                            <a href="#" class="px-4 py-2 bg-primary text-white font-medium rounded">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Algorithmic Trading Strategy</h3>
-                        <p class="text-gray-600 mb-4">Designed and backtested quantitative trading strategies using historical market data.</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Python</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Pandas</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Backtrader</span>
-                            <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">Technical Analysis</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> <!-- Close the grid div here -->
             
-            <div class="text-center mt-12">
-                <a href="#" class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-blue-700 transition inline-flex items-center">
+            <!-- Move the button outside the grid -->
+            <div class="flex justify-center mt-12">
+                <a href="https://github.com/christopher540" target="_blank" 
+                class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-blue-700 transition inline-flex items-center">
                     <i class="fab fa-github mr-2"></i> View All Projects on GitHub
                 </a>
             </div>
         </div>
     </section>
-
     <!-- Leadership & Activities Section -->
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -442,7 +438,7 @@
                         <i class="fas fa-users text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-2">CityU Student Leadership Programme</h3>
-                    <p class="text-gray-600 text-center">Developed leadership skills through workshops, team projects, and community service initiatives.</p>
+                    <p class="text-gray-600 text-center">Elite-100, Executive Mentoring, SEN Educator, PERMISI Buddy Programme, International Friends Club, Data Science Student Chapter</p>
                 </div>
                 
                 <!-- Activity 2 -->
@@ -450,152 +446,36 @@
                     <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-4 mx-auto">
                         <i class="fas fa-laptop-code text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-2">GenAI Hackathon</h3>
-                    <p class="text-gray-600 text-center">Participated in a 48-hour hackathon focused on generative AI applications, collaborating with a multidisciplinary team.</p>
-                </div>
-                
+                    <h3 class="text-xl font-bold text-center mb-4">GenAI Hackathon</h3>
+                    <ul class="space-y-3 text-gray-600 pl-5">
+                        <li class="relative pl-2">
+                            <span class="absolute -left-3 text-primary">•</span>
+                            Led a team of five nationalities to develop a smart fridge featuring an inventory management system with scanning-based and selection-based input, along with an AI-powered recipe generator, shopping list creator, and personal chatbot
+                        </li>
+                        <li class="relative pl-2">
+                            <span class="absolute -left-3 text-primary">•</span>
+                            Coordinated the development of a pitch deck and delivered a presentation to judges from four leading Hong Kong universities, successfully advancing to the top 10 rounds of the competition
+                        </li>
+                    </ul>
+                </div>                
                 <!-- Activity 3 -->
                 <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover transition duration-300">
                     <div class="w-16 h-16 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-4 mx-auto">
                         <i class="fas fa-microphone-alt text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-2">TEDxCityUHongKong</h3>
-                    <p class="text-gray-600 text-center">Served as [your role] for the TEDx event at City University, helping organize and promote ideas worth spreading.</p>
+                    <h3 class="text-xl font-bold text-center mb-4">TEDxCityUHongKong</h3>
+                    <h4 class="text-gray-600 text-center mb-2">Social Media Manager</h4>
+                    <ul class="space-y-3 text-gray-600 pl-5">
+                        <li class="relative pl-2">
+                            <span class="absolute -left-3 text-primary">•</span>
+                            Created and executed compelling social media campaigns, including 27 engaging newsfeed posts within three months, resulting in over a 30% increase in engagement and a 20%
+                        </li>
+                        <li class="relative pl-2">
+                            <span class="absolute -left-3 text-primary">•</span>
+                            Managed a promotion booth for two weeks, engaging over 100 visitors with interactive games and providing information on the events, resulting in a 40% increase in event attendance
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Technical Skills -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-code text-primary mr-3"></i> Technical Skills
-                    </h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Python</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">SQL</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">R</span>
-                                <span class="text-gray-600">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">C++</span>
-                                <span class="text-gray-600">75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Tableau</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Power BI</span>
-                                <span class="text-gray-600">80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Languages & Other Skills -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-language text-primary mr-3"></i> Languages
-                    </h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Indonesian (Native)</span>
-                                <span class="text-gray-600">100%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 100%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">English</span>
-                                <span class="text-gray-600">95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Putonghua</span>
-                                <span class="text-gray-600">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-1">
-                                <span class="font-medium">Cantonese</span>
-                                <span class="text-gray-600">85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-xl font-bold mt-10 mb-6 flex items-center">
-                        <i class="fas fa-tools text-primary mr-3"></i> Tools & Frameworks
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">Pandas</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">NumPy</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">Scikit-learn</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">TensorFlow</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">PyTorch</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">Matplotlib</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">Seaborn</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">Git</span>
-                        <span class="px-3 py-1 bg-gray-200 rounded-full">Docker</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Contact Section -->
@@ -622,7 +502,7 @@
                             </div>
                             <div>
                                 <h4 class="font-medium">Phone</h4>
-                                <p class="text-gray-600">(852) 61051375</p>
+                                <p class="text-gray-600">+852 61051375</p>
                             </div>
                         </div>
                         <div class="flex items-start">
@@ -638,41 +518,17 @@
                     
                     <h3 class="text-xl font-bold mt-8 mb-4">Connect With Me</h3>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-12 h-12 rounded-full bg-gray-100 hover:bg-primary hover:text-white text-gray-700 flex items-center justify-center transition">
+                        <a href="https://www.linkedin.com/in/christopher-otniel-eleazar/" target="_blank" class="w-12 h-12 rounded-full bg-gray-100 hover:bg-primary hover:text-white text-gray-700 flex items-center justify-center transition">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-800 hover:text-white text-gray-700 flex items-center justify-center transition">
+                        <a href="https://github.com/christopher540" target="_blank" class="w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-800 hover:text-white text-gray-700 flex items-center justify-center transition">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="w-12 h-12 rounded-full bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 flex items-center justify-center transition">
+                        <a href="https://www.youtube.com/@ChristopherOtniel" target="_blank" class="w-12 h-12 rounded-full bg-gray-100 hover:bg-red-600 hover:text-white text-gray-700 flex items-center justify-center transition">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
-                </div>
-                
-                <div class="md:w-1/2">
-                    <form class="space-y-4">
-                        <div>
-                            <label for="name" class="block font-medium mb-1">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
-                        </div>
-                        <div>
-                            <label for="email" class="block font-medium mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
-                        </div>
-                        <div>
-                            <label for="subject" class="block font-medium mb-1">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition">
-                        </div>
-                        <div>
-                            <label for="message" class="block font-medium mb-1">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition"></textarea>
-                        </div>
-                        <button type="submit" class="px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-blue-700 transition w-full">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
+                </div>                
             </div>
         </div>
     </section>
@@ -682,23 +538,23 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <h3 class="text-xl font-bold">Christopher Otniel ELEAZAR</h3>
+                    <h3 class="text-xl font-bold">Christopher Otniel Eleazar</h3>
                     <p class="text-gray-400">Data Science Student & AI Enthusiast</p>
                 </div>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="https://www.linkedin.com/in/christopher-otniel-eleazar/" target="_blank" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="https://github.com/christopher540" target="_blank" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
+                    <a href="https://www.youtube.com/@ChristopherOtniel" target="_blank" class="text-gray-400 hover:text-white transition">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
-                <p>&copy; 2025 Christopher Otniel ELEAZAR. All rights reserved.</p>
+                <p>&copy; 2025 Christopher Otniel Eleazar. All rights reserved.</p>
             </div>
         </div>
     </footer>
